@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Colors */
+:root {
+  --background: #0a0a0a; /* Dark background */
+  --foreground: #ededed; /* Light text */
+}
+
+/* Global Body Styling */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+/* Hero Section Overlay */
+.hero-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Button Container Styling */
+.button-container {
+  display: flex;
+  background-color: rgba(245, 73, 144, 0.9); /* Pink with transparency */
+  width: 250px;
+  height: 40px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px, rgba(245, 73, 144, 0.5) 5px 10px 15px;
+}
+
+.button {
+  outline: 0 !important;
+  border: 0 !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+/* Custom Styles for Links */
+a {
+  color: #f54990; /* Pink for links */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff7aa8; /* Lighter pink on hover */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f54990;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7aa8;
+}
+
+@keyframes glow {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.animate-glow {
+  animation: glow 2s infinite;
+}

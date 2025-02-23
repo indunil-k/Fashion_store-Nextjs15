@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 later i named this folder as "fashion_store"
+
+databases: mongoDB, cloudinary for content management

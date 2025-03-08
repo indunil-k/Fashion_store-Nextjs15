@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link"; // Import the Link component
 import "./globals.css";
-import SearchBar from "@/components/Searchbar"; // Import the SearchBar component
+import SearchBar from "@/components/SearchBar"; // Import the SearchBar component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +37,9 @@ export default function RootLayout({ children }) {
 
           {/* Catalog & Contact Buttons - More Visible */}
           <div className="flex space-x-6">
-            <Link href="/shop" className="text-lg font-semibold text-white-800 hover:text-red-600 transition-all duration-200">
+            {/* <Link href="/shop" className="text-lg font-semibold text-white-800 hover:text-red-600 transition-all duration-200">
               Sign in
-            </Link>
+            </Link> */}
             <Link href="/contact" className="text-lg font-semibold text-white-800 hover:text-red-600 transition-all duration-200">
               Contact
             </Link>

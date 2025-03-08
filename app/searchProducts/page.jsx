@@ -44,6 +44,8 @@ export default function SearchProductsPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6">
+      <br/>
+      <br/>
       <h1 className="text-3xl font-bold mb-6">Search Results for "{query}"</h1>
 
       {loading ? (

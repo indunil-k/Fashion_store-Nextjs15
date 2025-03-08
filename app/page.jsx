@@ -48,6 +48,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Welcome text */}
+      <div className="py-16 px-6 text-center">
+        <h2 className="text-4xl font-bold mb-4">Welcome to Our Store</h2>
+        <p className="text-gray-400">
+          Explore our wide range of products and find the perfect items for you.
+        </p>
+      </div>
+
       {/* Featured Products */}
       <section className="py-16 px-6">
         <h2 className="text-3xl font-bold text-center mb-12">Featured Products</h2>

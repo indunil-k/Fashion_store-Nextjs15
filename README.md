@@ -39,3 +39,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 later i named this folder as "fashion_store"
 
 databases: mongoDB, cloudinary for content management
+
+
+## Hope to do following extensions:
+
+Alternative: Store Prices as Integers (Cents)
+Why?
+
+Storing prices as integers (e.g., 2999 for $29.99) avoids floating-point precision issues entirely.
+
+This approach is common in systems where performance and simplicity are prioritized.
+
+You can convert the value back to a decimal format in your application logic.
+
+#
+
+currently we are fetching all the producyts at once. we hope to extract data from the database byparts..
+
+# 
+seem to be instock,outstock filter is not working..

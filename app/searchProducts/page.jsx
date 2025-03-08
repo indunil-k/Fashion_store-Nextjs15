@@ -6,6 +6,8 @@ import ProductGrid from "@/components/ProductGrid";
 
 const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
+export const dynamic = 'force-dynamic'; // 🔥 Force dynamic rendering
+
 function SearchProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);

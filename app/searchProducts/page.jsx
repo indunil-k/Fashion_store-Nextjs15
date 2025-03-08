@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 
@@ -59,4 +59,10 @@ function SearchProductsPage() {
   );
 }
 
-export default SearchProductsPage;
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchProductsPage />
+    </Suspense>
+  );
+}

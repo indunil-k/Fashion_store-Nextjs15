@@ -1,12 +1,13 @@
-"use client"; // Add this at the top for client-side interactivity
+"use client"; // Mark this as a Client Component
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 
 const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
-export default function SearchProductsPage() {
+// Main component for search results
+function SearchResults() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,8 +45,8 @@ export default function SearchProductsPage() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6">
-      <br/>
-      <br/>
+      <br />
+      <br />
       <h1 className="text-3xl font-bold mb-6">Search Results for "{query}"</h1>
 
       {loading ? (
@@ -58,5 +59,14 @@ export default function SearchProductsPage() {
         <p className="text-center text-gray-400">No results found.</p>
       )}
     </div>
+  );
+}
+
+// Wrapper component with Suspense boundary
+export default function SearchProductsPage() {
+  return (
+    <Suspense fallback={<div className="text-center text-gray-400">Loading...</div>}>
+      <SearchResults />
+    </Suspense>
   );
 }

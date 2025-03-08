@@ -58,3 +58,6 @@ currently we are fetching all the producyts at once. we hope to extract data fro
 
 # 
 seem to be instock,outstock filter is not working..
+
+#
+hope to indexing id of product

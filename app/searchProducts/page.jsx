@@ -1,19 +1,23 @@
 "use client";
 
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 
 const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
-export const dynamic = 'force-dynamic'; // 🔥 Force dynamic rendering
+export const dynamic = 'force-dynamic'; // Force dynamic rendering
+
+function useQuery() {
+  const searchParams = useSearchParams();
+  return searchParams.get("query");
+}
 
 function SearchProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const searchParams = useSearchParams();
-  const query = searchParams.get("query");
+  const query = useQuery();
 
   useEffect(() => {
     const fetchSearchResults = async () => {
@@ -59,10 +63,4 @@ function SearchProductsPage() {
   );
 }
 
-export default function SearchPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SearchProductsPage />
-    </Suspense>
-  );
-}
+export default SearchProductsPage;

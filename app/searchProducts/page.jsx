@@ -1,20 +1,18 @@
-"use client"; // Mark this as a Client Component
+"use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 
 const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
-// Main component for search results
-function SearchResults() {
+function SearchProductsPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
 
-  // Fetch search results from the API
   useEffect(() => {
     const fetchSearchResults = async () => {
       if (!query) {
@@ -30,7 +28,6 @@ function SearchResults() {
         if (!res.ok) throw new Error("Failed to fetch search results");
 
         const data = await res.json();
-        console.log("API Response:", data); // Log the API response
         setProducts(data);
       } catch (error) {
         console.error("Search error:", error);
@@ -45,8 +42,6 @@ function SearchResults() {
 
   return (
     <div className="bg-gray-900 text-white min-h-screen p-6">
-      <br />
-      <br />
       <h1 className="text-3xl font-bold mb-6">Search Results for "{query}"</h1>
 
       {loading ? (
@@ -62,11 +57,4 @@ function SearchResults() {
   );
 }
 
-// Wrapper component with Suspense boundary
-export default function SearchProductsPage() {
-  return (
-    <Suspense fallback={<div className="text-center text-gray-400">Loading...</div>}>
-      <SearchResults />
-    </Suspense>
-  );
-}
+export default SearchProductsPage;

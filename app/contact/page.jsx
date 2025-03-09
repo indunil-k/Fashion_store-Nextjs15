@@ -45,7 +45,7 @@ export default function ContactPage() {
       </form>
 
       {/* WhatsApp Floating Icon */}
-      <a
+      {/* <a
         href="https://wa.me/yourwhatsapplink"
         target="_blank"
         rel="noopener noreferrer"
@@ -60,7 +60,7 @@ export default function ContactPage() {
         >
           <path d="M20 3H4a2 2 0 0 0-2 2v14l4-4h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z" />
         </svg>
-      </a>
+      </a> */}
     </div>
   );
 }

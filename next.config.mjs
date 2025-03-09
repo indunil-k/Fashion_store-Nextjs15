@@ -1,18 +1,18 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["res.cloudinary.com"], // Add Cloudinary domain here
+      domains: ["res.cloudinary.com"], // Add Cloudinary domain here
     },
-    eslint:{
-        ignoreDuringBuilds: true,
+    eslint: {
+      ignoreDuringBuilds: true,
     },
     typescript: {
-        ignoreBuildErrors: true,
-      },
-    experimental: {
-        missingSuspenseWithCSRBailout: false,
+      ignoreBuildErrors: true,
     },
-    
-};
-
-export default nextConfig;
+    // experimental: {
+    //   missingSuspenseWithCSRBailout: false,
+    // },
+  };
+  
+  export default nextConfig;

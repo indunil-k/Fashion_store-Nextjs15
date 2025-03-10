@@ -9,7 +9,8 @@ export default function AddProduct() {
   const [product, setProduct] = useState({
     name: "",
     price: "",
-    image: "", // This will hold the Cloudinary URL
+    image: "", // Main image URL
+    otherImages: [], // Array of other image URLs
     link: "",
     sale: false,
     description: "",
@@ -17,6 +18,7 @@ export default function AddProduct() {
   });
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadingOtherImages, setUploadingOtherImages] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -78,11 +80,11 @@ export default function AddProduct() {
         </div>
 
         <div className="mb-6">
-          <label className="block text-lg font-medium mb-2">Product Image</label>
+          <label className="block text-lg font-medium mb-2">Main Product Image</label>
           <CldUploadWidget
             uploadPreset="my_upload_preset" // Replace with your upload preset
             onSuccess={(result) => {
-              setProduct({ ...product, image: result.info.secure_url }); // Store Cloudinary URL
+              setProduct({ ...product, image: result.info.secure_url }); // Store main image URL
               setUploading(false);
             }}
             onUpload={() => setUploading(true)} // Show uploading state
@@ -93,13 +95,46 @@ export default function AddProduct() {
                 onClick={() => open()}
                 className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-white"
               >
-                Upload Image
+                Upload Main Image
               </button>
             )}
           </CldUploadWidget>
           {uploading && <p className="text-yellow-400 mt-2">Uploading...</p>}
           {product.image && (
-            <img src={product.image} alt="Uploaded" className="mt-3 w-32 rounded-lg" />
+            <img src={product.image} alt="Main Product" className="mt-3 w-32 rounded-lg" />
+          )}
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-lg font-medium mb-2">Other Product Images</label>
+          <CldUploadWidget
+            uploadPreset="my_upload_preset" // Replace with your upload preset
+            onSuccess={(result) => {
+              setProduct((prev) => ({
+                ...prev,
+                otherImages: [...prev.otherImages, result.info.secure_url], // Add new image URL to array
+              }));
+              setUploadingOtherImages(false);
+            }}
+            onUpload={() => setUploadingOtherImages(true)} // Show uploading state
+          >
+            {({ open }) => (
+              <button
+                type="button"
+                onClick={() => open()}
+                className="w-full p-3 bg-gray-900 border border-gray-700 rounded-lg text-white"
+              >
+                Upload Additional Image
+              </button>
+            )}
+          </CldUploadWidget>
+          {uploadingOtherImages && <p className="text-yellow-400 mt-2">Uploading...</p>}
+          {product.otherImages.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {product.otherImages.map((image, index) => (
+                <img key={index} src={image} alt={`Other Product ${index + 1}`} className="w-32 rounded-lg" />
+              ))}
+            </div>
           )}
         </div>
 
@@ -151,7 +186,7 @@ export default function AddProduct() {
           <button
             type="submit"
             className="px-8 py-3 bg-pink-600 text-white rounded-lg"
-            disabled={loading || uploading}
+            disabled={loading || uploading || uploadingOtherImages}
           >
             {loading ? "Adding..." : "Add Product"}
           </button>

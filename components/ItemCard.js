@@ -14,12 +14,12 @@ export default function ItemCard({ product }) {
         />
       </div>
       <h3 className="mt-4 text-xl font-semibold">{product.name}</h3>
-      <p className="text-gray-400 mt-2">{product.price}</p>
+      <p className="text-gray-400 mt-2">${product.price.toFixed(2)}</p>
       <Link
-        href={product.link}
+        href={`/viewProduct/${product._id}`} // Use product._id for the dynamic route
         className="mt-4 inline-block px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-all"
       >
-        Buy Now
+        View
       </Link>
     </div>
   );

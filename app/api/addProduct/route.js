@@ -8,7 +8,7 @@ export async function POST(req) {
 
   try {
     const body = await req.json();
-    const { name, price, image, link, sale, description, tags } = body;
+    const { name, price, image, otherImages, link, sale, description, tags } = body;
 
     if (!name || !price) {
       return NextResponse.json({ error: "Name and price are required" }, { status: 400 });
@@ -19,6 +19,7 @@ export async function POST(req) {
       name, 
       price, 
       image, 
+      otherImages, // Add otherImages field
       link, 
       sale, 
       description, 
@@ -31,6 +32,7 @@ export async function POST(req) {
       name: newProduct.name,
       price: newProduct.price,
       image: newProduct.image,
+      otherImages: newProduct.otherImages, // Log otherImages
       link: newProduct.link,
       sale: newProduct.sale,
       description: newProduct.description,

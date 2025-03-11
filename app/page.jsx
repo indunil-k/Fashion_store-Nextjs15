@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ItemCard from "../components/ItemCard"; // Import the ItemCard component
 
-const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
+//const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
 export default function Home() {
   const [products, setProducts] = useState([]);

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductGrid from "@/components/ProductGrid";
 
-const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
+//const API = (path) => `${process.env.NEXT_PUBLIC_API_BASE_URL}${path}`;
 
 export default function SearchComponent() {
   const [products, setProducts] = useState([]);
@@ -25,7 +25,7 @@ export default function SearchComponent() {
         setLoading(true);
         setError(null);
 
-        const res = await fetch(API(`/search?query=${encodeURIComponent(query)}`));
+        const res = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
         if (!res.ok) throw new Error("Failed to fetch search results");
 
         const data = await res.json();

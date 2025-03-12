@@ -5,8 +5,9 @@ const fetchProduct = async (id) => {
   try {
     console.log("Fetching product with ID:", id);
 
-    // Fetch the product by ID
-    const apiUrl = `http://localhost:3000/api/getProductById?id=${id}`;
+    // Use an environment variable for the base URL
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000/api";
+    const apiUrl = `${baseUrl}/getProductById?id=${id}`;
     console.log("API URL:", apiUrl);
 
     const response = await fetch(apiUrl, {
@@ -126,4 +127,4 @@ export default async function ViewProduct({ params }) {
       </div>
     </div>
   );
-}    //when double click the images, each image should be previewed.. can u understand what i am saying?
+}

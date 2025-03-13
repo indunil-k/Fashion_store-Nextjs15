@@ -24,8 +24,11 @@ body {
 .button-container {
   display: flex;
   background-color: rgba(245, 73, 144, 0.9); /* Pink with transparency */
-  width: 250px;
-  height: 40px;
+  width: 80%; /* Relative width */
+  max-width: 250px; /* Maximum width */
+  height: auto; /* Auto height */
+  padding: 2% 3%; /* Percentage-based padding */
+  min-height: 40px; /* Minimum height */
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
@@ -33,18 +36,19 @@ body {
 }
 
 /* Responsive Button Container */
-@media (max-width: 640px) { /* For small screens (smartphones) */
+@media (max-width: 640px) {
   .button-container {
-    width: 200px; /* Smaller width */
-    height: 35px; /* Smaller height */
+    width: 90%; /* Wider percentage on mobile */
+    max-width: 200px; /* Smaller max width */
+    padding: 1.5% 2%; /* Smaller padding */
   }
 }
 
 .button {
   outline: 0 !important;
   border: 0 !important;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem; /* Relative width */
+  height: 2.5rem; /* Relative height */
   border-radius: 50%;
   background-color: transparent;
   display: flex;
@@ -60,13 +64,18 @@ body {
 }
 
 .icon {
-  font-size: 20px;
+  font-size: 1.25rem; /* Relative font size using rem */
 }
 
 /* Responsive Icon Size */
 @media (max-width: 640px) {
+  .button {
+    width: 2rem; /* Smaller button size */
+    height: 2rem;
+  }
+  
   .icon {
-    font-size: 16px; /* Smaller icon size for smartphones */
+    font-size: 1rem; /* Smaller icon size for smartphones */
   }
 }
 
@@ -82,7 +91,7 @@ a:hover {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem; /* Using rem instead of px */
 }
 
 ::-webkit-scrollbar-track {
@@ -91,7 +100,7 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
   background: #f54990;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -113,27 +122,27 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 45px;
-  height: 45px;
+  width: 3rem; /* Using rem instead of px */
+  height: 3rem;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition-duration: 0.3s;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.199);
   background-color: #00d757;
 }
 
 /* Responsive WhatsApp Button */
 @media (max-width: 640px) {
   .Btn {
-    width: 40px; /* Smaller button size */
-    height: 40px;
+    width: 2.5rem; /* Smaller button size */
+    height: 2.5rem;
   }
-
+  
   .Btn:hover {
-    width: 120px; /* Smaller expanded width */
+    width: 7.5rem; /* Smaller expanded width */
   }
 }
 
@@ -146,7 +155,7 @@ a:hover {
 }
 
 .sign svg {
-  width: 25px;
+  width: 1.5625rem; /* 25px to rem */
 }
 
 .sign svg path {
@@ -165,24 +174,24 @@ a:hover {
 }
 
 .Btn:hover {
-  width: 150px;
-  border-radius: 40px;
+  width: 9.375rem; /* 150px to rem */
+  border-radius: 2.5rem; /* 40px to rem */
   transition-duration: 0.3s;
 }
 
 .Btn:hover .sign {
   width: 30%;
   transition-duration: 0.3s;
-  padding-left: 10px;
+  padding-left: 0.625rem; /* 10px to rem */
 }
 
 .Btn:hover .text {
   opacity: 1;
   width: 70%;
   transition-duration: 0.3s;
-  padding-right: 10px;
+  padding-right: 0.625rem; /* 10px to rem */
 }
 
 .Btn:active {
-  transform: translate(2px, 2px);
+  transform: translate(0.125rem, 0.125rem); /* 2px to rem */
 }

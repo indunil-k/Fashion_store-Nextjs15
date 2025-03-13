@@ -1,8 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link"; // Import the Link component
+//import Link from "next/link";
 import "./globals.css";
-import SearchBar from "@/components/SearchBar"; // Import the SearchBar component
-import WhatsAppButton from "@/components/WhatsAppButton"; // Import the WhatsAppButton component
+import Navbar from "@/components/NavBar"; // Import the new Client Component
+//import SearchBar from "@/components/SearchBar";
+//import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,47 +24,17 @@ export default function RootLayout({ children }) {
   const appName = process.env.NEXT_PUBLIC_APP_NAME || "Default Store";
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
       <body className="flex flex-col min-h-screen">
-        {/* Navigation - Fixed at the top */}
-        <nav className="fixed top-0 left-0 w-full bg-[#0a0a0a] z-50 shadow-md py-4 px-6 flex justify-between items-center">
-          {/* Left Section - App Name */}
-          <div className="text-2xl font-bold text-[#ededed]">{appName}</div>
-
-          {/* Center Section - Search Bar */}
-          <div className="flex-grow flex justify-center mx-4">
-            <SearchBar />
-          </div>
-
-          {/* Right Section - Navigation Buttons */}
-          <div className="flex space-x-6">
-            <Link href="/contact" className="text-lg font-semibold text-[#f54990] hover:text-[#ff7aa8] transition-all duration-200">
-              Contact
-            </Link>
-            <Link href="/shop/1" className="text-lg font-semibold text-[#f54990] hover:text-[#ff7aa8] transition-all duration-200">
-              Catalog
-            </Link>
-            <Link href="/" className="text-lg font-semibold text-[#f54990] hover:text-[#ff7aa8] transition-all duration-200">
-              Home
-            </Link>
-            {/* WhatsApp Button */}
-            <WhatsAppButton />
-          </div>
-
-          {/* Glittering Red Line - Now Under Navigation */}
-          <div className="absolute bottom-[-1px] left-0 w-full h-[3px] bg-gradient-to-r from-red-500 via-pink-500 to-red-500 animate-glow"></div>
-        </nav>
-
-      
-
-        {/* WhatsApp Button */}
-        {/* <WhatsAppButton /> */}
-
-        {/* Page Content - Adjusted for fixed navigation */}
-        <main className="flex-grow pt-[calc(4rem+1px)]">{children}</main>
-
-        {/* Footer */}
-        <footer className="py-6 text-center text-gray-500 border-t bg-[#0a0a0a]">
+        <Navbar appName={appName} />
+        <main className="flex-grow pt-[calc(4rem+1px)] md:pt-[calc(4.5rem+1px)]">
+          {children}
+        </main>
+        <footer className="py-4 md:py-6 text-center text-gray-500 border-t bg-[#0a0a0a] text-sm md:text-base">
           © {appName}. Be simple, Be free..
         </footer>
       </body>

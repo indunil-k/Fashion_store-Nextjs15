@@ -40,7 +40,7 @@ export default function Home() {
         <div className="relative z-10 text-center">
           <h1 className="text-5xl font-bold mb-6">Discover Elegance & Comfort</h1>
           <Link
-            href="/shop"
+            href="/shop/1"
             className="mt-4 px-8 py-3 bg-pink-600 text-white rounded-lg text-lg font-semibold hover:bg-pink-700 transition-all"
           >
             Shop Now
@@ -74,7 +74,7 @@ export default function Home() {
       <section>
         <div className="text-center mt-12">
           <Link
-            href="/shop"
+            href="/shop/1"
             className="inline-block px-8 py-3 bg-pink-600 text-white rounded-lg text-lg font-semibold hover:bg-pink-700 transition-all"
           >
             View All

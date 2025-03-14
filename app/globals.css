@@ -195,3 +195,172 @@ a:hover {
 .Btn:active {
   transform: translate(0.125rem, 0.125rem); /* 2px to rem */
 }
+
+
+/* Add these styles to your globals.css file */
+
+/* Carousel Styling */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+/* Animated Button Effects */
+.carousel-btn {
+  opacity: 0.7;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(245, 73, 144, 0.5);
+}
+
+/* Hero Content Animation */
+.hero-content h1, 
+.hero-content p {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.7s ease;
+}
+
+.carousel-slide.active .hero-content h1,
+.carousel-slide.active .hero-content p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.carousel-slide.active .hero-content h1 {
+  transition-delay: 0.3s;
+}
+
+.carousel-slide.active .hero-content p {
+  transition-delay: 0.5s;
+}
+
+/* Enhanced Button Container Animation */
+.button-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  background-color: rgba(245, 73, 144, 0.85);
+  width: auto;
+  max-width: none;
+  height: auto;
+  padding: 0.75rem 2rem;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35), 5px 10px 15px rgba(245, 73, 144, 0.5);
+}
+
+/* Add these styles to your globals.css file */
+
+/* Basic carousel transitions */
+.carousel-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Indicator button animations */
+button[aria-label^="Go to slide"] {
+  transition: all 0.3s ease;
+}
+
+button[aria-label^="Go to slide"]:hover {
+  background-color: rgba(236, 72, 153, 0.7);
+}
+
+/* Enhanced button hover effects */
+.bg-pink-600:hover {
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+}
+
+/* Improved input focus */
+input:focus {
+  box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.5);
+  border-color: #ec4899;
+  outline: none;
+}
+
+/* Add more spacing for mobile */
+@media (max-width: 640px) {
+  .py-16 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .mb-12 {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Product card hover effects */
+.transform:hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation for carousel navigation */
+button[aria-label="Previous slide"]:hover,
+button[aria-label="Next slide"]:hover {
+  transform: scale(1.1);
+}
+
+
+
+/* Add these styles to your globals.css file */
+
+/* Animation for the thin red border glow */
+@keyframes borderPulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* Enhanced ItemCard hover effect */
+.item-card-container {
+  position: relative;
+  padding: 2px;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.item-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  background: linear-gradient(45deg, #ef4444, #ec4899, #ef4444);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.item-card-container:hover .item-card-border {
+  opacity: 1;
+  animation: borderPulse 2s infinite;
+}
+
+.item-card-content {
+  position: relative;
+  background-color: #1f2937; /* bg-gray-800 */
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  z-index: 2; 
+}

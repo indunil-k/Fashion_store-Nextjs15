@@ -48,9 +48,14 @@ export default function Navbar({ appName }) {
     <nav className="fixed top-0 left-0 w-full bg-[#0a0a0a] z-50 shadow-md py-3 px-4 md:py-4 md:px-6">
       <div className="flex justify-between items-center">
         {/* Left Section - App Name */}
-        <div className="text-xl md:text-2xl font-bold text-[#ededed]">
+        {/* <div className="text-xl md:text-2xl font-bold text-[#ededed]">
           {appName}
-        </div>
+        </div> */}
+
+      <Link href="/" className="text-xl md:text-2xl font-bold text-[#ededed] hover:text-[#f54990] transition-all duration-200">
+        {appName}
+      </Link>
+
 
         {/* Center Section - Search Bar (hidden on mobile) */}
         <div className="hidden md:flex flex-grow justify-center mx-4">

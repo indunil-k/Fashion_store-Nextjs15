@@ -77,8 +77,9 @@ export default function Navbar({ appName }) {
           >
             Home
           </Link>
-          <WhatsAppButton />
         </div>
+
+        <WhatsAppButton />
 
         {/* Mobile menu button */}
         <button

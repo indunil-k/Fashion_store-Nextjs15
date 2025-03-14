@@ -4,7 +4,7 @@ export default function WhatsAppButton() {
   // Function to handle WhatsApp click
   const handleWhatsAppClick = () => {
     // Replace with your WhatsApp link or phone number
-    const whatsappUrl = `https://wa.me/940441194`; // Replace with your WhatsApp number
+    const whatsappUrl = `https://wa.me/94770441194`; // Replace with your WhatsApp number
     window.open(whatsappUrl, "_blank");
   };
 

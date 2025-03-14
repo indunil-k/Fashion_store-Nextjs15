@@ -29,24 +29,26 @@ export default function Home() {
     <div className="bg-gray-900 text-white">
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/hero.png"
-          alt="Hero Banner"
-          fill
-          style={{ objectFit: "cover" }}
-          className="absolute inset-0 opacity-70"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center">
-          <h1 className="text-5xl font-bold mb-6">Discover Elegance & Comfort</h1>
-          <Link
-            href="/shop/1"
-            className="mt-4 px-8 py-3 bg-pink-600 text-white rounded-lg text-lg font-semibold hover:bg-pink-700 transition-all"
-          >
-            Shop Now
-          </Link>
-        </div>
-      </section>
+  <Image
+    src="/hero.jpg"
+    alt="Hero Banner"
+    fill
+    style={{ objectFit: "cover", objectPosition: "center  calc(100% - 0px)" }} // Move image up by 20px
+    className="absolute inset-0 opacity-70"
+  />
+  <div className="absolute inset-0 bg-black/50"></div>
+  <div className="relative z-10 text-center">
+    <h1 className="text-5xl font-bold mb-6">Discover Taste & Elegance</h1>
+    <Link
+      href="/shop/1"
+      className="mt-4 px-8 py-3 bg-pink-600 text-white rounded-lg text-lg font-semibold hover:bg-pink-700 transition-all"
+    >
+      Shop Now
+    </Link>
+  </div>
+</section>
+
+
 
       {/* Welcome text */}
       <div className="py-16 px-6 text-center">
